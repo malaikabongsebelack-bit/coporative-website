@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import MobileMenu from './MobileMenu';
 import MobileBanner from './MobileBanner';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,7 +6,6 @@ import './Navbar.css';
 
 const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
-  const detailsRef = useRef<HTMLDetailsElement>(null);
 
   return (
     <header>
