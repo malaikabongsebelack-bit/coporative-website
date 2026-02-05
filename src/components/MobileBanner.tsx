@@ -1,7 +1,19 @@
 import { Globe, ChevronDown } from 'lucide-react';
+import { useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './MobileBanner.css';
 
 const MobileBanner = () => {
+  const { language, setLanguage } = useLanguage();
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  const handleLanguageChange = (lang: 'fr' | 'en') => {
+    setLanguage(lang);
+    if (detailsRef.current) {
+      detailsRef.current.removeAttribute('open');
+    }
+  };
+
   return (
     <div className="mobile-banner">
       <div className="mobile-banner-container">
@@ -23,20 +35,22 @@ const MobileBanner = () => {
           </div>
         </div>
 
-        {/* Language Selector */}
+        {/* Language Toggle */}
         <div className="mobile-lang-actions">
-          <details className="mobile-language-selector">
-            <summary className="mobile-language-btn">
-              <Globe size={14} />
-              <span>FR</span>
-              <ChevronDown size={14} />
-            </summary>
-            <div className="mobile-language-dropdown">
-              <button className="mobile-language-option">FR</button>
-              <button className="mobile-language-option">EN</button>
-              <button className="mobile-language-option">ES</button>
-            </div>
-          </details>
+          <div className="mobile-language-toggle">
+            <button
+              className={`mobile-lang-btn ${language === 'fr' ? 'active' : ''}`}
+              onClick={() => setLanguage('fr')}
+            >
+              FR
+            </button>
+            <button
+              className={`mobile-lang-btn ${language === 'en' ? 'active' : ''}`}
+              onClick={() => setLanguage('en')}
+            >
+              EN
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import './MobileFooter.css';
 
 const fadeInUp = {
@@ -22,6 +23,8 @@ const staggerContainer = {
 };
 
 const MobileFooter = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="mobile-footer">
       {/* Brand */}
@@ -34,7 +37,7 @@ const MobileFooter = () => {
       >
         <h2 className="mobile-footer-logo">BW<span>GROUP</span></h2>
         <p className="mobile-footer-desc">
-          Votre partenaire de confiance pour des solutions innovantes et performantes.
+          {t('footer.description')}
         </p>
         <motion.div 
           className="mobile-footer-social"
@@ -57,29 +60,29 @@ const MobileFooter = () => {
         <motion.a href="tel:+237242009397" className="mobile-contact-card" variants={fadeInUp}>
           <div className="mobile-contact-icon"><Phone size={20} /></div>
           <div className="mobile-contact-info">
-            <span className="mobile-contact-label">Appelez-nous</span>
+            <span className="mobile-contact-label">{t('mobile.call.us')}</span>
             <span className="mobile-contact-value">+237 242 009 397</span>
           </div>
         </motion.a>
         <motion.a href="tel:+237679177560" className="mobile-contact-card" variants={fadeInUp}>
           <div className="mobile-contact-icon"><Phone size={20} /></div>
           <div className="mobile-contact-info">
-            <span className="mobile-contact-label">Appelez-nous</span>
+            <span className="mobile-contact-label">{t('mobile.call.us')}</span>
             <span className="mobile-contact-value">+237 679 177 560</span>
           </div>
         </motion.a>
         <motion.a href="mailto:contact@bwgroup.com" className="mobile-contact-card" variants={fadeInUp}>
           <div className="mobile-contact-icon"><Mail size={20} /></div>
           <div className="mobile-contact-info">
-            <span className="mobile-contact-label">Envoyez un email</span>
+            <span className="mobile-contact-label">{t('mobile.send.email')}</span>
             <span className="mobile-contact-value">contact@bwgroup.com</span>
           </div>
         </motion.a>
         <motion.div className="mobile-contact-card" variants={fadeInUp}>
           <div className="mobile-contact-icon"><MapPin size={20} /></div>
           <div className="mobile-contact-info">
-            <span className="mobile-contact-label">Notre adresse</span>
-            <span className="mobile-contact-value">Biyemassi, Yaounde, Cameroun</span>
+            <span className="mobile-contact-label">{t('mobile.our.address')}</span>
+            <span className="mobile-contact-value">{t('contact.address')}</span>
           </div>
         </motion.div>
       </motion.div>
@@ -92,12 +95,12 @@ const MobileFooter = () => {
         viewport={{ once: false }}
         variants={fadeInUp}
       >
-        <h3>Liens rapides</h3>
+        <h3>{t('footer.quicklinks')}</h3>
         <div className="mobile-links-grid">
-          <motion.a href="/" className="mobile-link-item" whileHover={{ x: 5 }}>Accueil</motion.a>
-          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>Services</motion.a>
-          <motion.a href="#about" className="mobile-link-item" whileHover={{ x: 5 }}>À propos</motion.a>
-          <motion.a href="#contact" className="mobile-link-item" whileHover={{ x: 5 }}>Contact</motion.a>
+          <motion.a href="/" className="mobile-link-item" whileHover={{ x: 5 }}>{t('nav.home')}</motion.a>
+          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>{t('nav.services')}</motion.a>
+          <motion.a href="#about" className="mobile-link-item" whileHover={{ x: 5 }}>{t('nav.about')}</motion.a>
+          <motion.a href="#contact" className="mobile-link-item" whileHover={{ x: 5 }}>{t('nav.contact')}</motion.a>
         </div>
       </motion.div>
 
@@ -109,12 +112,12 @@ const MobileFooter = () => {
         viewport={{ once: false }}
         variants={fadeInUp}
       >
-        <h3>Nos services</h3>
+        <h3>{t('services.title')}</h3>
         <div className="mobile-links-grid">
-          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>Conseil stratégique</motion.a>
-          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>Innovation</motion.a>
-          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>Performance</motion.a>
-          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>Analyse de données</motion.a>
+          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>{t('service.consulting')}</motion.a>
+          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>{t('service.innovation')}</motion.a>
+          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>{t('service.performance')}</motion.a>
+          <motion.a href="#services" className="mobile-link-item" whileHover={{ x: 5 }}>{t('service.analytics')}</motion.a>
         </div>
       </motion.div>
 
@@ -126,10 +129,10 @@ const MobileFooter = () => {
         viewport={{ once: false }}
         transition={{ duration: 0.5 }}
       >
-        <p>© {new Date().getFullYear()} BW Group Ltd. Tous droits réservés.</p>
+        <p>© {new Date().getFullYear()} BW Group Ltd. {t('mobile.all.rights')}</p>
         <div className="mobile-footer-legal">
-          <motion.a href="#" whileHover={{ scale: 1.1 }}>Confidentialité</motion.a>
-          <motion.a href="#" whileHover={{ scale: 1.1 }}>Conditions</motion.a>
+          <motion.a href="#" whileHover={{ scale: 1.1 }}>{t('mobile.privacy')}</motion.a>
+          <motion.a href="#" whileHover={{ scale: 1.1 }}>{t('mobile.terms')}</motion.a>
         </div>
       </motion.div>
     </footer>

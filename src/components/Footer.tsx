@@ -8,6 +8,7 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import './Footer.css';
 
 const fadeInUp = {
@@ -20,6 +21,8 @@ const fadeInUp = {
 };
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -32,8 +35,7 @@ const Footer = () => {
         >
           <h3 className="footer-logo">BW<span>GROUP</span></h3>
           <p className="footer-description">
-            Votre partenaire de confiance pour des solutions innovantes et performantes.
-            Nous accompagnons votre entreprise vers le succès.
+            {t('footer.description')}
           </p>
         </motion.div>
 
@@ -44,12 +46,12 @@ const Footer = () => {
           viewport={{ once: false }}
           variants={fadeInUp}
         >
-          <h4>Liens rapides</h4>
+          <h4>{t('footer.quicklinks')}</h4>
           <ul className="footer-links">
-            <motion.li variants={fadeInUp}><a href="/">Accueil</a></motion.li>
-            <motion.li variants={fadeInUp}><a href="#services">Services</a></motion.li>
-            <motion.li variants={fadeInUp}><a href="#about">À propos</a></motion.li>
-            <motion.li variants={fadeInUp}><a href="#contact">Contact</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="/">{t('nav.home')}</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#services">{t('nav.services')}</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#about">{t('nav.about')}</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#contact">{t('nav.contact')}</a></motion.li>
           </ul>
         </motion.div>
 
@@ -60,12 +62,12 @@ const Footer = () => {
           viewport={{ once: false }}
           variants={fadeInUp}
         >
-          <h4>Services</h4>
+          <h4>{t('footer.services')}</h4>
           <ul className="footer-links">
-            <motion.li variants={fadeInUp}><a href="#services">Conseil stratégique</a></motion.li>
-            <motion.li variants={fadeInUp}><a href="#services">Innovation</a></motion.li>
-            <motion.li variants={fadeInUp}><a href="#services">Performance</a></motion.li>
-            <motion.li variants={fadeInUp}><a href="#services">Analyse de données</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#services">{t('service.consulting')}</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#services">{t('service.innovation')}</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#services">{t('service.performance')}</a></motion.li>
+            <motion.li variants={fadeInUp}><a href="#services">{t('service.analytics')}</a></motion.li>
           </ul>
         </motion.div>
 
@@ -76,23 +78,23 @@ const Footer = () => {
           viewport={{ once: false }}
           variants={fadeInUp}
         >
-          <h4>Contact</h4>
+          <h4>{t('footer.contact')}</h4>
           <ul className="footer-contact">
             <motion.li variants={fadeInUp}>
               <span className="contact-icon"><MapPin size={18} /></span>
-              Biyemassi, Yaounde, Cameroun
+              {t('contact.address')}
             </motion.li>
             <motion.li variants={fadeInUp}>
               <span className="contact-icon"><Phone size={18} /></span>
-              +237 242 009 397
+              {t('contact.phone')}
             </motion.li>
             <motion.li variants={fadeInUp}>
               <span className="contact-icon"><Phone size={18} /></span>
-              +237 679 177 560
+              {t('contact.phone2')}
             </motion.li>
             <motion.li variants={fadeInUp}>
               <span className="contact-icon"><Mail size={18} /></span>
-              contact@bwgroup.com
+              {t('contact.email')}
             </motion.li>
           </ul>
         </motion.div>
@@ -105,7 +107,7 @@ const Footer = () => {
         viewport={{ once: false }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <p> BW Group Ltd Copyright &copy; {new Date().getFullYear()}. Tous droits réservés.</p>
+        <p> BW Group Ltd Copyright &copy; {new Date().getFullYear()}. {t('footer.copyright').replace('{year}', new Date().getFullYear().toString())}</p>
         <div className="footer-social">
           <motion.a 
             href="#" 

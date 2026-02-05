@@ -131,6 +131,40 @@
   color: #ffffff;
 }
 
+/* Mobile Language Selector in Menu */
+.mobile-lang-selector {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 8px;
+}
+
+.mobile-lang-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555555;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-lang-item:hover {
+  background: #e0e0e0;
+  color: #333333;
+}
+
+.mobile-lang-item.active {
+  background: #ff6b00;
+  color: #ffffff;
+}
+
 /* Mobile Overlay */
 .mobile-overlay {
   position: fixed;

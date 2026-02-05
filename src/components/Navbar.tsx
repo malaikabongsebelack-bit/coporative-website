@@ -1,10 +1,22 @@
 import { Globe, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import MobileMenu from './MobileMenu';
 import MobileBanner from './MobileBanner';
+import { useLanguage } from '../context/LanguageContext';
 import './Navbar.css';
 
 const Navbar = () => {
+  const { language, setLanguage, t } = useLanguage();
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  const handleLanguageChange = (lang: 'fr' | 'en') => {
+    setLanguage(lang);
+    if (detailsRef.current) {
+      detailsRef.current.removeAttribute('open');
+    }
+  };
+
   return (
     <header>
       {/* Desktop Top Bar */}
@@ -30,18 +42,20 @@ const Navbar = () => {
             </a>
           </div>
           <div className="top-bar-actions">
-            <details className="language-selector">
-              <summary className="language-btn">
-                <Globe size={14} />
-                <span>FR</span>
-                <ChevronDown size={14} />
-              </summary>
-              <div className="language-dropdown">
-                <button className="language-option">FR</button>
-                <button className="language-option">EN</button>
-                <button className="language-option">ES</button>
-              </div>
-            </details>
+            <div className="language-toggle">
+              <button
+                className={`lang-btn ${language === 'fr' ? 'active' : ''}`}
+                onClick={() => setLanguage('fr')}
+              >
+                FR
+              </button>
+              <button
+                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => setLanguage('en')}
+              >
+                EN
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -63,11 +77,11 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <ul className="navbar-menu">
-            <motion.li whileHover={{ scale: 1.05 }}><a href="/" className="nav-link active">Accueil</a></motion.li>
-            <motion.li whileHover={{ scale: 1.05 }}><a href="#services" className="nav-link">Services</a></motion.li>
-            <motion.li whileHover={{ scale: 1.05 }}><a href="#about" className="nav-link">À propos</a></motion.li>
-            <motion.li whileHover={{ scale: 1.05 }}><a href="#projects" className="nav-link">Projets</a></motion.li>
-            <motion.li whileHover={{ scale: 1.05 }}><a href="#contact" className="nav-link btn-contact">Contact</a></motion.li>
+            <motion.li whileHover={{ scale: 1.05 }}><a href="/" className="nav-link active">{t('nav.home')}</a></motion.li>
+            <motion.li whileHover={{ scale: 1.05 }}><a href="#services" className="nav-link">{t('nav.services')}</a></motion.li>
+            <motion.li whileHover={{ scale: 1.05 }}><a href="#about" className="nav-link">{t('nav.about')}</a></motion.li>
+            <motion.li whileHover={{ scale: 1.05 }}><a href="#projects" className="nav-link">{t('nav.projects')}</a></motion.li>
+            <motion.li whileHover={{ scale: 1.05 }}><a href="#contact" className="nav-link btn-contact">{t('nav.contact')}</a></motion.li>
           </ul>
 
           {/* Mobile Menu */}
