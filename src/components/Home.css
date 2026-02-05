@@ -280,19 +280,19 @@
 }
 
 .action-card-1 {
-  background-image: url('./assets/services.jpg');
+  background-image: url('/assets/services.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .action-card-2 {
-  background-image: url('./assets/devis.jpg');
+  background-image: url('/assets/devis.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .action-card-3 {
-  background-image: url('./assets/ticket.jpg');
+  background-image: url('/assets/ticket.jpg');
   background-size: cover;
   background-position: center;
 }

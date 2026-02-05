@@ -118,9 +118,9 @@ const Home = () => {
           viewport={{ once: false }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <img 
-            src="./assets/banner_image.png" 
-            alt="BWGROUP Professional" 
+          <img
+            src="/assets/banner_image.png"
+            alt="BWGROUP Professional"
           />
         </motion.div>
       </section>
@@ -386,9 +386,9 @@ const Home = () => {
             </motion.div>
             <motion.div className="about-image" variants={fadeInUp}>
               <div className="about-shape">
-                <img 
-                  src="./assets/avatar.png" 
-                  alt="About BWGROUP" 
+                <img
+                  src="/assets/avatar.png"
+                  alt="About BWGROUP"
                 />
               </div>
             </motion.div>
