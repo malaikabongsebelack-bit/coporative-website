@@ -1,18 +1,8 @@
-import { Globe, ChevronDown } from 'lucide-react';
-import { useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import './MobileBanner.css';
 
 const MobileBanner = () => {
   const { language, setLanguage } = useLanguage();
-  const detailsRef = useRef<HTMLDetailsElement>(null);
-
-  const handleLanguageChange = (lang: 'fr' | 'en') => {
-    setLanguage(lang);
-    if (detailsRef.current) {
-      detailsRef.current.removeAttribute('open');
-    }
-  };
 
   return (
     <div className="mobile-banner">

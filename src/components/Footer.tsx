@@ -4,8 +4,7 @@ import {
   Mail, 
   Linkedin, 
   Twitter, 
-  Facebook,
-  ArrowRight 
+  Facebook
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';

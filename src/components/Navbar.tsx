@@ -1,4 +1,3 @@
-import { Globe, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import MobileMenu from './MobileMenu';
@@ -9,13 +8,6 @@ import './Navbar.css';
 const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
   const detailsRef = useRef<HTMLDetailsElement>(null);
-
-  const handleLanguageChange = (lang: 'fr' | 'en') => {
-    setLanguage(lang);
-    if (detailsRef.current) {
-      detailsRef.current.removeAttribute('open');
-    }
-  };
 
   return (
     <header>
